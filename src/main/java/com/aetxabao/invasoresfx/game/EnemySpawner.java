@@ -54,8 +54,10 @@ public class EnemySpawner {
                 enemies = crearEnemigosNivelPaquito(gameRect);
                 break;
             case 3:
-            default:
                 enemies = crearEnemigosNivelPulpo(gameRect);
+            case 4:
+            default:
+                enemies = crearEnemigosNivelNew(gameRect);
                 break;
         }
         return enemies;
