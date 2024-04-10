@@ -55,6 +55,7 @@ public class EnemySpawner {
                 break;
             case 3:
                 enemies = crearEnemigosNivelPulpo(gameRect);
+                break;
             case 4:
             default:
                 enemies = crearEnemigosNivelNew(gameRect);
@@ -78,8 +79,11 @@ public class EnemySpawner {
                 e = new EnemyShipDiagonal(gameRect, enemyImage, TICKSxFRAME);
                 break;
             case E_NORMAL:
-            default:
                 e = new EnemyShip(gameRect, enemyImage, TICKSxFRAME);
+                break;
+            case E_NEW:
+            default:
+                e = new EnemyShipNew(gameRect, enemyImage, TICKSxFRAME);
                 break;
         }
         if (shot == E_SHOT_GUN){
@@ -142,12 +146,19 @@ public class EnemySpawner {
         List<AEnemy> enemies = new ArrayList<>();
         enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 0, 0, vx, 0, E_SHOT_GUN));
         enemies.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 7, 1, -vx, 0, E_SHOT_GUN));
-        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 0, 0, vx, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 7, 0, -vx, vy, E_SHOT_NOTHING));
-        enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 3, 0, -vx, vy, E_SHOT_NOTHING));
+        enemies.add(createEnemyShip(E_NEW, ENEMYSHIP_SPRITE_IMAGE_4, gameRect, 0, 0, vx, vy, E_SHOT_GUN));
+        enemies.add(createEnemyShip(E_NEW, ENEMYSHIP_SPRITE_IMAGE_4, gameRect, 7, 0, -vx, vy, E_SHOT_GUN));
+        enemies.add(createEnemyShip(E_NEW, ENEMYSHIP_SPRITE_IMAGE_4, gameRect, 3, 0, -vx, vy, E_SHOT_GUN));
         enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 4, 0, vx, vy, E_SHOT_NOTHING));
         enemies.add(createEnemyShip(E_DIAGONAL, ENEMYSHIP_SPRITE_IMAGE_2, gameRect, 4, 0, vx, vy, E_SHOT_NOTHING));
-
+        List<EnemyShip> el1 = new ArrayList<>();
+        el1.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 2, 4, vx, 0, E_SHOT_NOTHING));
+        el1.add(createEnemyShip(E_NEW, ENEMYSHIP_SPRITE_IMAGE_4, gameRect, 3, 4, vx, 0, E_SHOT_GUN));
+        el1.add(createEnemyShip(E_NORMAL, ENEMYSHIP_SPRITE_IMAGE_1, gameRect, 4, 4, vx, 0, E_SHOT_NOTHING));
+        el1.add(createEnemyShip(E_NEW, ENEMYSHIP_SPRITE_IMAGE_4, gameRect, 5, 4, vx, 0, E_SHOT_GUN));
+        EnemyShipGroup eg1 = new EnemyShipGroup(gameRect, el1);
+        eg1.setXSpeed(vx);
+        enemies.add(eg1);
         return enemies;
     }
 }

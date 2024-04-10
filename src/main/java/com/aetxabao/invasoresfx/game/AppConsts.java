@@ -27,11 +27,12 @@ public final class AppConsts {
     //endregion
 
     //region EnemyGenerator
-    final static int LEVELS = 3;
-    final static int TICKSxFRAME = 3;
+    final static int LEVELS = 4;
+    final static int TICKSxFRAME = 4;
     static final Image ENEMYSHIP_SPRITE_IMAGE_1 = new Image(Main.class.getResource("sprite/ei1.png").toString());
     static final Image ENEMYSHIP_SPRITE_IMAGE_2 = new Image(Main.class.getResource("sprite/ei2.png").toString());
     static final Image ENEMYSHIP_SPRITE_IMAGE_3 = new Image(Main.class.getResource("sprite/ei3.png").toString());
+    static final Image ENEMYSHIP_SPRITE_IMAGE_4 = new Image(Main.class.getResource("sprite/ei4.png").toString());
     static final Image ENEMYBARRIER4_SPRITE_IMAGE = new Image(Main.class.getResource("sprite/barrier4.png").toString());
     static final Image ENEMYTOWER3_SPRITE_IMAGE = new Image(Main.class.getResource("sprite/tower3.png").toString());
     //endregion
